@@ -40,6 +40,55 @@
 //   })
 // })
 
+// describe('Shopping Cart Test Suite', () => {
+//   it('should add items to cart and complete payment', () => {
+//     // Visit the URL
+//     cy.visit('https://www.saucedemo.com')
+
+//     // Login using the account
+//     cy.get('#user-name').type('standard_user')
+//     cy.get('#password').type('secret_sauce')
+//     cy.get('#login-button').click()
+
+//     // Read the XLSX file containing the item names to add to cart
+//     cy.readFile('items.xlsx').then((file) => {
+//       // Parse the XLSX file and get the item names
+//       const items = cy.parseXlsx(file).map(row => row[0])
+
+//       // Loop through the items and add them to the cart
+//       items.forEach(item => {
+//         cy.get('.inventory-list')
+//           .contains(item)
+//           .siblings('.pricebar')
+//           .children('.btn_primary')
+//           .click()
+//       })
+
+//       // Go to the cart and checkout
+//       cy.get('.shopping_cart_link').click()
+//       cy.contains('Checkout').click()
+
+//       // Fill out the checkout form
+//       cy.get('#first-name').type('John')
+//       cy.get('#last-name').type('Doe')
+//       cy.get('#postal-code').type('12345')
+//       cy.contains('Continue').click()
+
+//       // Verify the total amount is correct
+//       cy.get('.summary_total_label')
+//         .siblings('.summary_value_label')
+//         .should('contain', '$100.00')
+
+//       // Finish the payment
+//       cy.contains('Finish').click()
+
+//       // Verify the order confirmation message
+//       cy.contains('THANK YOU FOR YOUR ORDER')
+//     })
+//   })
+// })
+
+
 describe('Sauce Demo', () => {
   it('should log in, add items to the cart, and complete the purchase', () => {
     // Visit the login page
